@@ -1,0 +1,73 @@
+@import "define";
+
+#wrapper {
+    width:100%;
+    height:100%;
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+    justify-content: space-around;
+}
+
+.item {
+    width:290px;
+}
+
+.player_image {
+    width:290px;
+    height:350px;
+    background-color: #e97809;
+}
+
+.player_controller {
+    height:18%;
+    text-align: center;
+
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+    justify-content: space-around;
+    font-family: sans-serif;
+
+  font-family: "cf_samurai_bobregular";
+  font-size : 20pt;
+  text-shadow : 1px 1px white;
+}
+
+.player_ready {
+    position:relative;
+    top:-100px;
+    margin-bottom: -100px;
+    display: none;
+}
+
+#ready {
+    position      :absolute;
+    top           :50%;
+    left : 50%;
+  width : 100%;
+    @include transform(translateY(-50%));
+    @include transform(translateX(-50%));
+    font-family   : $font_title;
+    font-size     : 150pt;
+    margin-top    :  -100px;
+    display       :none;
+  z-index : 10;
+}
+
+.indication {
+  font-family: "cf_samurai_bobregular";
+  text-shadow:
+    2px 2px 0 #000,
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+  font-size : 25pt;
+  color:#e97809;
+}
+
+
+

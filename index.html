@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<head>
+
+    <title>Shinobomb ! A bomberman clone in Babylon.js</title>
+    <link rel="stylesheet" type="text/css" href="css/libs/animate.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/player_select.css" />
+    <link rel="stylesheet" type="text/css" href="css/bomberman.css" />
+
+    <!--Libs -->
+    <script src="js/libs/jquery-2.1.1.min.js"></script>
+    <script src="js/libs/jquery.jrumble.1.3.min.js"></script>
+    <script src="js/libs/babylon.2.0-beta.debug.js"></script>
+
+    <!--Helpers-->
+    <script src="js/helpers/MenuGamepadHelper.js"></script>
+    <script src="js/helpers/MenuPlayer.js"></script>
+
+    <!--Controller-->
+    <script src="js/Game.js"></script>
+
+    <!--States -->
+    <script src="js/states/State.js"></script>
+    <script src="js/states/GameState.js"></script>
+
+    <!--Model-->
+    <script src="js/model/Bomb.js"></script>
+    <script src="js/model/Timer.js"></script>
+    <script src="js/model/Board.js"></script>
+    <script src="js/model/Player.js"></script>
+    <script src="js/model/Crate.js"></script>
+
+    <!--Bonus -->
+    <script src="js/model/bonus/Bonus.js"></script>
+    <script src="js/model/bonus/ExplosionBonus.js"></script>
+    <script src="js/model/bonus/SpeedBonus.js"></script>
+
+    <!-- Menus -->
+    <script src="js/scripts/00_press_key.js"></script>
+    <script src="js/scripts/01_home_menu.js"></script>
+    <script src="js/scripts/02_choose_player.js"></script>
+
+</head>
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-52990898-1', 'auto');
+    ga('send', 'pageview');
+
+</script>
+<body>
+
+     <!--00_press_key-->
+    <div class="menuBoard" id="01_press_key">
+        <div class="title">
+            <img src="img/title.png" width="800px"/>
+        </div>
+        <div id="press_key">
+            <div class="selected">
+                <img width="450px" src="img/press_a_key.png"/>
+            </div>
+            <img class="shuriken" src="img/shuriken_not_supported.png" height="100px"/>
+        </div>
+    </div>
+
+     <!--Winner board, not displayed at start -->
+    <div id="endgame" class="winner">
+       <img src="img/p1_win.png" width="600px"/><br/>
+        <div class="endGameMessage">
+            Did you like it ? Support me with a tweet, or buy me a beer :)<br/>
+            <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.pixelcodr.com/games/shinobomb/index.html" data-text="I just played Shinobomb ! It was awesome ! cc @temechon @jbledowski"  data-size="large" data-count="none" data-hashtags="shinobomb">Tweet</a>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+            <br/>
+            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                <input type="hidden" name="cmd" value="_s-xclick">
+                <input type="hidden" name="hosted_button_id" value="LF5A67ZMD2CBA">
+                <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                <img alt="" border="0" src="https://www.paypalobjects.com/fr_FR/i/scr/pixel.gif" width="1" height="1">
+            </form>
+        </div>
+
+    </div>
+
+    <!--Displayed when the game starts-->
+     <div class="go displayable">
+         <img src="img/menu/go.png" />
+     </div>
+
+     <!--displayed when player choose their characters-->
+     <div class="ready displayable">
+         <img src="img/menu/letsfight.png" />
+     </div>
+
+    <!-- 02_choose_player -->
+    <div class="menuBoard" id="02_choose_player">
+
+        <div id="wrapper">
+
+        </div>
+
+        <div class="playButton">
+            <img src="img/menu/play_off.png"/>
+        </div>
+    </div>
+
+     <!-- The game canvas -->
+	<canvas id="renderCanvas"></canvas>
+
+    <!--The background image-->
+     <div class="background-image"></div>
+
+</body>
+</html>

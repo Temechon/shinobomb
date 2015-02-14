@@ -1,0 +1,154 @@
+/* Mixin for keyframe */
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+  @-ms-keyframes #{$name} {
+    @content;
+  }
+  @keyframes #{$name} {
+    @content;
+  }
+}
+
+/* Mixin for scale */
+@mixin scale($size) {
+  -webkit-transform: scale($size);
+  -moz-transform: scale($size);
+  -ms-transform: scale($size);
+  transform: scale($size);
+}
+
+
+@mixin filter($filter) {
+  -webkit-filter : $filter;
+  filter         : $filter;
+  -ms-filter     : $filter;
+}
+
+/* Mixin for animation */
+@mixin animation($value) {
+  -webkit-animation: $value;
+  -moz-animation: $value;
+  -ms-animation: $value;
+  -o-animation: $value;
+  animation: $value;
+}
+
+/* Mixin for animation duration */
+@mixin duration($value) {
+  -webkit-animation-duration: $value;
+  -moz-animation-duration: $value;
+  -ms-animation-duration: $value;
+  -o-animation-duration: $value;
+  animation-duration: $value;
+}
+
+/* Create animation 'selected' with the element scale animated*/
+@include keyframes(select) {
+  0% {
+    @include scale(1)
+  }
+  50% {
+     @include scale(1.1)
+  }
+  100% {
+    @include scale(1)
+  }
+}
+.selected {
+  @include animation(select 0.85s linear infinite alternate);
+}
+
+/* Mixin for transform */
+@mixin transform($transforms) {
+  -moz-transform      : $transforms;
+  -o-transform        : $transforms;
+  -ms-transform       : $transforms;
+  -webkit-transform   : $transforms;
+  transform           : $transforms;
+}
+
+/* Mixin for background size */
+@mixin background-size($params) {
+  -webkit-background-size   : $params;
+  -moz-background-size    : $params;
+  -o-background-size      : $params;
+  background-size         : $params;
+}
+
+/* Make an element from huge size to normal size */
+@include keyframes(hugeToSmall) {
+  0%{
+    @include scale(5);
+    opacity:0;
+  }
+  100%{
+    @include scale(1);
+    opacity:1;
+  }
+}
+
+@include keyframes(spin) {
+  0% {
+    @include transform(rotate(0deg));
+  }
+  100% {
+    @include transform(rotate(360deg));
+  }
+}
+
+/* Makes an element disapear by increasing its size */
+@include keyframes(smallFadeOut) {
+  0%{
+    @include scale(1);
+    opacity:1;
+  }
+  100%{
+    @include scale(5);
+    opacity:0;
+  }
+}
+
+/* Makes an elemen blink. The element is displayed afterwards */
+@include keyframes(blink) {
+  0%{
+    opacity:0;
+  }
+  20%{
+    opacity:1;
+  }
+  40%{
+    opacity:0;
+  }
+  60%{
+    opacity:1;
+  }
+  80%{
+    opacity:0;
+  }
+  100%{
+    opacity:1;
+  }
+}
+
+/* Makes an element disapear by decreasing its size */
+@include keyframes(smallFadeIn) {
+  0%{
+    @include scale(6);
+    @include transform(translateY(-50%));
+    opacity:0;
+  }
+  100%{
+    @include scale(1);
+    @include transform(translateY(-50%));
+    opacity:1;
+  }
+}
+
+.fast {
+  @include duration(0.15s);
+}

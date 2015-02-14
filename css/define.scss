@@ -1,0 +1,40 @@
+@import "anims";
+
+$menu_item_width      : 100px;
+$menu_item_height     : 30px;
+$background_image     : '../img/menu/dojo_comp.jpg';
+
+
+/* TITLE PARAMETERS */
+$font_title         : "cf_samurai_bobregular";
+$title_color        : black;
+$title_shadow_1     : white;
+$title_shadow_2     : #ECF0F1;
+$title_shadow_3     : #3498DB;
+
+
+/* Center horizontally and vertically */
+.centerXY {
+  position  : absolute;
+  top       : 30%;
+  left      : 50%;
+  @include transform(translateY(-50%));
+  @include transform(translateX(-50%));
+}
+
+/* GUI PARAMETERS */
+$font_gui         : "cf_samurai_bobregular";
+$font_gui_size    : 20pt;
+$font_gui_color   : white;
+
+@font-face {
+  font-family: 'cf_samurai_bobregular';
+  src: url('../fonts/samuraibob/cfsamuraibob-webfont.eot');
+  src: url('../fonts/samuraibob/cfsamuraibob-webfont.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/samuraibob/cfsamuraibob-webfont.woff2') format('woff2'),
+  url('../fonts/samuraibob/cfsamuraibob-webfont.woff') format('woff'),
+  url('../fonts/samuraibob/cfsamuraibob-webfont.ttf') format('truetype'),
+  url('../fonts/samuraibob/cfsamuraibob-webfont.svg#cf_samurai_bobregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}

@@ -1,0 +1,128 @@
+@import "define.scss";
+@import "winner.scss";
+
+
+html, body {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+#renderCanvas {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.background-image {
+  background: url($background_image) no-repeat center center fixed;
+  @include background-size(cover);
+  position : absolute;
+  top : 0;
+  bottom : 0;
+  right : 0;
+  left : 0;
+//  @include filter(blur(2px) grayscale(0.3) );
+  z-index : -1;
+}
+
+.menuBoard {
+  min-width:1280px;
+  height : 100%;
+//  min-height:720px;
+
+  max-width:1920px;
+  max-height:1080px;
+
+  width:100%;
+  height:100%;
+
+  margin:auto;
+  overflow: hidden;
+
+  // FLEX
+  display : flex;
+  justify-content: center;
+  align-items: center;
+
+
+  #press_key {
+    display : flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width : 100%;
+    height : 100%;
+    margin-top : 50px;
+
+    .shuriken {
+      position : absolute;
+      bottom: 50px;
+      right : 20px;
+    }
+  }
+
+  /* The game title */
+  .title {
+    position : absolute;
+    top : 20px;
+    left : 50%;
+    @include transform(translateX(-50%));
+    img {
+      @include animation(hugeToSmall linear 0.50s);
+    }
+  }
+
+  /* The play button when player are ready */
+  .playButton {
+    position : absolute;
+    left : 50%;
+    @include transform(translateX(-50%));
+    top : 83%;
+  }
+}
+
+#menu {
+  display:flex;
+  flex-direction: row;
+  justify-content:center;
+  align-items : center;
+}
+
+.menu_item {
+  min-width: $menu_item_width;
+  min-height: $menu_item_height;
+  margin:30px;
+  display: flex;
+  flex-direction: row;
+  align-items : center;
+  font-family: $font_gui;
+  color: $font_gui_color;
+  font-size: $font_gui_size;
+
+  /* Player icon and bomb icon */
+  img {
+    margin:0 10px 0 10px;
+  }
+}
+
+/* Containers when a player is choosing its character */
+.item {
+  display : flex;
+  flex-direction: column;
+  align-items : center;
+}
+
+.empty {
+  visibility: hidden;
+}
+
+.endGameMessage {
+  background-color: rgba(0,0,0,0.7);
+  text-align:center;
+  padding : 5px 10px 5px 10px;
+  width : 100%;
+}
