@@ -2,7 +2,7 @@
 
 ![](http://pixelcodr.com/images/shinobomb/shino_1.png)
 
-(Play it here)[http://pixelcodr.com/games/shinobomb/index.html]
+[Play it here](http://pixelcodr.com/games/shinobomb/index.html)
 
 This game is a bomberman-lite clone made with the WebGL game framework [Babylon.js](https://github.com/BabylonJS/Babylon.js).
 Play with one to three friend, on the same computer, with a keyboard or gamepads !
